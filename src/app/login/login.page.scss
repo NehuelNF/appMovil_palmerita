@@ -1,0 +1,13 @@
+ion-content {
+    display: flex;
+    justify-content: center; /* Centra verticalmente si necesitas */
+    align-items: center; /* Centra horizontalmente */
+    
+  }
+  
+  .content-container {
+    display: flex; /* Habilita flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Hace que el contenedor tenga la altura completa de la ventana */
+ }
