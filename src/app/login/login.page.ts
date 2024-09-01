@@ -14,19 +14,19 @@ export class LoginPage implements OnInit {
     user: string = '';
     password: string = '';
 
-  ngOnInit() {
-  }
-
-  onLoginButtonPressed(){
-    if (this.sessionManager.performLogin(this.user, this.password)){
-      this.router.navigate(['/home'])
-    } else {
-      alert('El usuario o contraseña ingresada son invalidas.')
+    ngOnInit() {
     }
-  }
 
-  onRegisterButtonPressed(){
-    this.router.navigate(['/register'])
-  }
+    onLoginButtonPressed(){
+      if (this.sessionManager.performLogin(this.user, this.password)){
+        this.router.navigate(['/tab'])
+      } else {
+        alert('El usuario o contraseña ingresada son invalidas.')
+      }
+    }
+
+    onRegisterButtonPressed(){
+      this.router.navigate(['/register'])
+    }
 
 }

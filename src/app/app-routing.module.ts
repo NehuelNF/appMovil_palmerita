@@ -20,8 +20,16 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'tab',
+    loadChildren: () => import('./page/tab/tab.module').then( m => m.TabPageModule)
+  },
+  {
+    path: 'season',
+    loadChildren: () => import('./page/season/season.module').then( m => m.SeasonPageModule)
+  },
+  {
+    path: 'top',
+    loadChildren: () => import('./page/top/top.module').then( m => m.TopPageModule)
   },
 ];
 
