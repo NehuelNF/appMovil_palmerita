@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
 
     onLoginButtonPressed(){
       if (this.sessionManager.performLogin(this.user, this.password)){
-        this.router.navigate(['/tab'])
+        this.router.navigate(['/tab/inicio'])
       } else {
         alert('El usuario o contraseña ingresada son invalidas.')
       }
