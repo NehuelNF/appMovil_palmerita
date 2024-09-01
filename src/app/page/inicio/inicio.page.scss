@@ -1,0 +1,47 @@
+/* Estilos para el contenedor principal */
+.container {
+    width: 412px; /* Ancho aproximado del S10 Ultra */
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #1e1e1e; /* Fondo oscuro similar a la imagen */
+  }
+  
+  /* Estilos para cada elemento de la lista */
+  .list-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para la imagen circular */
+  .circular-icon {
+    width: 40px; /* Tamaño del icono ajustado */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+  }
+  
+  /* Estilos para el texto */
+  .item-text {
+    color: white; /* Color del texto */
+    font-family: Arial, sans-serif; /* Fuente similar a la de la imagen */
+    font-size: 16px; /* Tamaño de fuente ajustado */
+  }
+  
+  /* Media query para dispositivos más pequeños */
+  @media screen and (max-width: 412px) {
+    .container {
+      width: 100%;
+    }
+    
+    .circular-icon {
+      width: 30px;
+      height: 30px;
+    }
+    
+    .item-text {
+      font-size: 14px;
+    }
+  }
