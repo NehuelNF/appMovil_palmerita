@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  
+  .image-container {
+    flex-shrink: 0; /* Para que la imagen mantenga su tamaño */
+    margin-right: 16px; /* Espacio entre la imagen y el texto */
+  }
+  
+  img {
+    width: 100px; /* Ajusta el tamaño de la imagen a lo que necesites */
+    height: 178px; /* Relación de aspecto 9:16 */
+    object-fit: cover; /* Para que la imagen se ajuste correctamente sin distorsión */
+    border-radius: 8px; /* Opcional: redondear bordes */
+  }
+  
+  .text-container {
+    max-width: 70%; /* Para que el texto no ocupe demasiado espacio y se ajuste al lado de la imagen */
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #666; /* Cambia este color si es necesario */
+  }
+  
