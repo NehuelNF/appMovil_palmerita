@@ -34,7 +34,21 @@ const routes: Routes = [
   {
     path: 'noticia',
     loadChildren: () => import('./page/noticia/noticia.module').then( m => m.NoticiaPageModule)
+  },  {
+    path: 'vtuber',
+    loadChildren: () => import('./page/vtuber/vtuber.module').then( m => m.VtuberPageModule)
   },
+
+
+
+ 
+
+
+
+ 
+
+
+
 ];
 
 @NgModule({
