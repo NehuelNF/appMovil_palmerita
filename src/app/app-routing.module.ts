@@ -28,17 +28,13 @@ const routes: Routes = [
     loadChildren: () => import('./page/season/season.module').then( m => m.SeasonPageModule)
   },
   {
-    path: 'top',
-    loadChildren: () => import('./page/top/top.module').then( m => m.TopPageModule)
-  },
-  {
     path: 'noticia',
     loadChildren: () => import('./page/noticia/noticia.module').then( m => m.NoticiaPageModule)
-  },  {
+  },
+  {
     path: 'vtuber',
     loadChildren: () => import('./page/vtuber/vtuber.module').then( m => m.VtuberPageModule)
   },
-
 
 
  

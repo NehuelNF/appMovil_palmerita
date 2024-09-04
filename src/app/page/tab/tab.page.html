@@ -10,9 +10,11 @@
       <span class="material-symbols-outlined">home</span>
       Inicio
     </ion-tab-button>
-    <ion-tab-button tab="top">
-      <span class="material-symbols-outlined">star</span>
-      Top
+    
+    <ion-tab-button id="present-alert">
+      <ion-alert trigger="present-alert" header="No disponible" message="Esto aun no esta disponible :c" [buttons]="alertButtons"></ion-alert>
+      <span class="material-symbols-outlined">timer</span>
+      Contador
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
