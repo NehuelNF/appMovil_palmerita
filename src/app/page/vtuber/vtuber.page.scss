@@ -1,32 +1,88 @@
-.container {
-    display: flex;
-    align-items: flex-start;
-    padding: 16px;
-  }
-  
-  .image-container {
-    flex-shrink: 0; /* Para que la imagen mantenga su tamaño */
-    margin-right: 16px; /* Espacio entre la imagen y el texto */
-  }
-  
-  img {
-    width: 100px; /* Ajusta el tamaño de la imagen a lo que necesites */
-    height: 178px; /* Relación de aspecto 9:16 */
-    object-fit: cover; /* Para que la imagen se ajuste correctamente sin distorsión */
-    border-radius: 8px; /* Opcional: redondear bordes */
-  }
-  
-  .text-container {
-    max-width: 70%; /* Para que el texto no ocupe demasiado espacio y se ajuste al lado de la imagen */
-  }
-  
-  h2 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  p {
-    font-size: 14px;
-    color: #666; /* Cambia este color si es necesario */
-  }
-  
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que la página ocupe toda la altura de la ventana */
+  background: rgba(55, 55, 55, 1);
+}
+
+.header-bar {
+  height: 50px; /* Ajusta según tu diseño */
+  background: rgba(91, 91, 91, 1);
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+}
+
+.header-title {
+  color: rgba(255, 255, 255, 1);
+  font-size: 20px;
+}
+
+.main-content {
+  flex: 1; /* Hace que este contenido ocupe el espacio disponible */
+  padding: 10px;
+}
+
+.footer-bar {
+  height: 50px; /* Ajusta según tu diseño */
+  background: rgba(91, 91, 91, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.anime-title, .anime-category {
+  color: rgba(255, 255, 255, 1);
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+}
+
+.anime-title {
+  margin-top: 20px;
+}
+
+.anime-category {
+  margin-bottom: 10px;
+}
+
+.trailer-button {
+  width: 100%;
+  max-width: 151px;
+  background: rgba(217, 217, 217, 1);
+  text-align: center;
+}
+
+.header-title {
+  color: rgba(255, 255, 255, 1);
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+}
+
+.description-title {
+  color: rgba(255, 255, 255, 1);
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.description-content {
+  width: 100%;
+  background: rgba(138, 138, 138, 1);
+  padding: 10px;
+  color: #fff;
+  margin-top: 20px;
+  height: 50vh; /* Ajusta este valor según el tamaño de pantalla deseado */
+  overflow-y: auto; /* Permite el scroll vertical cuando el contenido excede la altura */
+}
