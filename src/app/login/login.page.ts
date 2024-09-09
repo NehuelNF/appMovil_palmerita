@@ -11,17 +11,29 @@ export class LoginPage implements OnInit {
 
   constructor(private router: Router, private sessionManager : SessionManager) { }
 
-    user: string = '';
+    identifier: string = '';
     password: string = '';
 
     ngOnInit() {
     }
 
-    onLoginButtonPressed(){
-      if (this.sessionManager.performLogin(this.user, this.password)){
-        this.router.navigate(['/tab/inicio'])
+    onLoginButtonPressed() {
+      console.log('Intentando iniciar sesión con:', this.identifier);
+  
+      if (!this.identifier || !this.password) {
+        console.log('Login fallido: Campos vacíos');
+        alert('Por favor, complete todos los campos.');
+        return;
+      }
+  
+      const loginSuccessful = this.sessionManager.login(this.identifier, this.password);
+
+      if (loginSuccessful) {
+  
+        this.router.navigate(['/tab/inicio']);
       } else {
-        alert('El usuario o contraseña ingresada son invalidas.')
+        console.log('Login fallido');
+        alert('Ingrese un usuario valido.');
       }
     }
 
