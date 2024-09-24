@@ -1,10 +1,14 @@
 <ion-content class="page-content">
-  <div class="header-bar">
-    <ion-buttons slots="start" class="header-title"> 
-      <ion-back-button defaultHref="/tab/season"></ion-back-button>Anime
-    </ion-buttons>
-  </div>
-
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <div class="header-bar">
+        <ion-buttons slots="start" class="header-title"> 
+          <ion-back-button defaultHref="/tab/season"></ion-back-button>Anime
+        </ion-buttons>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  
   <ion-grid>
     <ion-row>
       <ion-col size="6">
@@ -48,5 +52,4 @@
     </ion-row>
   </ion-grid>
 
-  <div class="footer-bar"></div>
 </ion-content>
