@@ -9,36 +9,32 @@ import { SessionManager } from 'src/managers/SessionManager';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router, private sessionManager : SessionManager) { }
+  constructor(private router: Router, private sessionManager: SessionManager) { }
 
-    identifier: string = '';
-    password: string = '';
+  identifier: string = '';
+  password: string = '';
 
-    ngOnInit() {
+  ngOnInit() {
+  }
+
+  onLoginButtonPressed() {
+    console.log('Intentando iniciar sesión con:', this.identifier);
+
+    if (!this.identifier || !this.password) {
+      console.log('Login fallido: Campos vacíos');
+      alert('Por favor, complete todos los campos.');
+      return;
     }
 
-    onLoginButtonPressed() {
-      console.log('Intentando iniciar sesión con:', this.identifier);
-  
-      if (!this.identifier || !this.password) {
-        console.log('Login fallido: Campos vacíos');
-        alert('Por favor, complete todos los campos.');
-        return;
-      }
-  
-      const loginSuccessful = this.sessionManager.login(this.identifier, this.password);
-
-      if (loginSuccessful) {
-  
-        this.router.navigate(['/tab/inicio']);
-      } else {
-        console.log('Login fallido');
-        alert('Ingrese un usuario valido.');
-      }
+    if (this.sessionManager.login(this.identifier, this.password)) {
+      this.router.navigate(['/tab/inicio']);
+    } else {
+      console.log('Login fallido');
+      alert('Nombre de usuario o contraseña incorrectos.');
     }
+  }
 
-    onRegisterButtonPressed(){
-      this.router.navigate(['/register'])
-    }
-
+  onRegisterButtonPressed() {
+    this.router.navigate(['/register']);
+  }
 }

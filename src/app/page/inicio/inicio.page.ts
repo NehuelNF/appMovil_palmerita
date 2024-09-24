@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionManager } from 'src/managers/SessionManager';
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
 
-  constructor() { }
+  constructor(private sessionManager : SessionManager) { }
 
   ngOnInit() {
   }
 
+  username: string = this.sessionManager.getUser()?.username || 'Usuario';
+  
 }

@@ -1,81 +1,53 @@
 import { Injectable } from "@angular/core";
 
-export interface User {
-    email: string;
-    username: string;
-    password: string;  
-}
-
 @Injectable({
     providedIn: 'root'
 })
+export class SessionManager {
+  private credentials: { username: string, password: string, email: string }[] = [
+    {
+        username: "user",
+        password: "pass",
+        email: "test@email.com"
+    },
+  ];
+  private currentUser: { username: string, password: string, email: string } | null = null;
+  private isUserActive: boolean = false;
 
-export class SessionManager{
-    
-    private users: User[] = [];
-    private currentUser: User | null = null;
-  
-    constructor() {
-      this.loadUsers();
-    }
-  
-    private loadUsers(): void {
-      const storedUsers = localStorage.getItem('users');
-      if (storedUsers) {
-        this.users = JSON.parse(storedUsers);
-      }
-    }
-  
-    // REGISTRO 
-
-    register(email: string, username: string, password: string): boolean {
-      if (this.users.some(user => user.email === email)) {
-        console.log('Email ya existe');
-        return false;
-      }
-      if (this.users.some(user => user.username === username)) {
-        console.log('Nombre de usuario ya existe');
-        return false;
-      }
-      
-      const newUser: User = { email, username, password };
-      this.users.push(newUser);
-      this.saveUsers();
+  public login(username: string, password: string): boolean {
+    // Buscar usuario por nombre de usuario y contraseña
+    const user = this.credentials.find(u => u.username === username && u.password === password);
+    if (user) {
+      this.currentUser = user;
+      this.isUserActive = true;
       return true;
     }
-  
-    // LOGIN
+    return false;
+  }
 
-    login(identifier: string, password: string): boolean {
-        if (!identifier || !password) {
-          console.log('Login fallido: Identificador o contraseña vacíos');
-          return false;
-        }
-    
-        const user = this.users.find(u => 
-          (u.username === identifier || u.email === identifier) && u.password === password
-        );
-        
-        if (user) {
-          this.currentUser = user;
-          console.log('Login exitoso para:', identifier);
-          return true;
-        }
-    
-        console.log('Login fallido: Credenciales incorrectas para:', identifier);
-        return false;
+  public register(username: string, password: string, email: string): boolean {
+    // Verificar si el nombre de usuario ya está en uso
+    if (this.credentials.some(u => u.username === username)) {
+      return false;
     }
-  
-    logout(): void {
-      this.currentUser = null;
+
+    // Agregar nuevo usuario
+    this.credentials.push({ username, password, email });
+    return true;
+  }
+
+  public getUser(): { email: string, username: string } | null {
+    if (!this.currentUser) {
+      return null;
     }
-  
-    getCurrentUser(): User | null {
-      return this.currentUser;
-    }
-  
-    public saveUsers(): void {
-      localStorage.setItem('users', JSON.stringify(this.users));
-    }
-    
+    return {
+      email: this.currentUser.email,
+      username: this.currentUser.username
+    };
+  }
+
+  public isUserLoggedIn(): boolean {
+    return this.isUserActive;
+  }
+
 }

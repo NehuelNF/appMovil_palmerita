@@ -19,11 +19,9 @@ export class RegisterPage implements OnInit {
   }
 
   onRegisterButtonPressed() {
-    if (this.sessionManager.register(this.email, this.username, this.password)) {
-      // Registro exitoso, redirigir al login
+    if (this.sessionManager.register(this.username, this.password, this.email)) {
       this.router.navigate(['/login']);
     } else {
-      // Mostrar mensaje de error
       alert('Error en el registro. El email o nombre de usuario ya existe.');
     }
   }
